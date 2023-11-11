@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 500px;
+            height: 250px;
+            background-color: gray;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="showBtn">Show</button>
+    <button id="hideBtn">Hide</button>
+    <button id="toogleBtn">Toogle</button>
+
+    <br><br><br>
+
+    <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae cumque itaque voluptate? Ipsam
+        quasi placeat, voluptate nihil exercitationem fuga nobis provident. Aspernatur exercitationem delectus
+        recusandae voluptatum iure harum? Eos, amet. Officiis voluptate soluta atque ratione molestias rerum unde
+        consectetur deserunt. Veritatis sint ipsum, fuga aut deserunt ex ipsam cum rem laudantium dolorum odio suscipit
+        reprehenderit eos, provident optio nam ut itaque culpa recusandae quis iste dicta ad eum? Asperiores inventore
+        ipsum vitae blanditiis exercitationem deleniti mollitia dignissimos soluta laborum excepturi, sit consequuntur
+        aspernatur officia nesciunt voluptate recusandae rerum cupiditate illo rem laboriosam, eos ad quo. Facere autem
+        error porro harum?</div>
+
+    <br><br>
+
+    <input type="text" name="fname" id="fname" placeholder="Enter Name">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#showBtn").click(function () {
+                // $(".box").show()
+                //    $(".box").fadeIn()
+                $(".box").slideDown(1000)
+            })
+        })
+
+        $(document).ready(function () {
+            $("#hideBtn").click(function () {
+                // $(".box").hide()
+                // $(".box").fadeOut()
+                $(".box").slideUp(1000)
+            })
+        })
+
+        $(document).ready(function () {
+            $("#toogleBtn").click(function () {
+                // $(".box").toggle()
+                // $(".box").fadeToggle()
+                $(".box").slideToggle(1000)
+            })
+        })
+
+
+        $(".box").mouseenter(function () {
+            $(this).css({
+                "background-color": "red",
+                "color": "white"
+            })
+        })
+
+        $(".box").mouseleave(function () {
+            $(this).css({
+                "background-color": "gray",
+                "color": "black"
+            })
+        })
+
+        // $("#fname").keyup(function () {
+        //     let v = $("#fname").val()
+        //     console.log(v);
+        // })
+
+        $("#fname").keydown(function () {
+            let v = $("#fname").val()
+            console.log(v);
+        })
+
+        $("#showBtn").mousedown(function () {
+            $(this).css({
+                "background-color": "gray",
+            })
+        })
+
+
+    </script>
+
+</body>
+
+</html>

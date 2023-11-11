@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Validation Form:</h2>
+
+    <form id="formData">
+        Name:
+        <input type="text" name="name" id="name" placeholder="Please enter name">
+        <br>
+        <span class="nameError"></span>
+        <br><br>
+        Age:
+        <input type="text" name="age" id="age" placeholder="Please enter age">
+        <br>
+        <span class="ageError"></span>
+        <br><br>
+        Password:
+        <input type="text" name="password" id="password" placeholder="Please enter password">
+        <br>
+        <span class="passwordError"></span>
+        <br><br>
+        <button>Submit</button>
+    </form>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).submit(function () {
+            $("#formData").submit(function () {
+                let name = $("#name").val();
+                let age = $("#age").val();
+                let password = $("#password").val()
+                console.log(name, age, password);
+
+                var regexName = /^[a-zA-Z ]{2,30}$/
+
+                if (regexName.test(name)) {
+                    $(".nameError").html(" ")
+                } else {
+                    $(".nameError").html("Please enter valid name")
+                }
+
+                if (age > 0 && age <= 200) {
+                    $(".ageError").html("")
+                } else {
+                    $(".ageError").html("Please enter valid age")
+                }
+
+                var regexPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{8,8}$/;
+                ;
+
+                if (regexPass.test(password)) {
+                    $(".passwordError").html(" ")
+                } else {
+                    $(".passwordError").html("Please enter 8 digit password.")
+                }
+
+
+            })
+
+
+            return false;
+
+        })
+    </script>
+
+
+</body>
+
+</html>
